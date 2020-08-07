@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+    <%= link_to 'New Post', new_post_path, class: "button is-info is-inverted" %>
+<% end %>
+
+<div class="content">
+    <% @posts.each do |post| %>
+        <% if user_signed_in? %>
+            <strong><%= post.user.name %></strong><br />
+        <% end %>
+        <p><%= post.body %></p>
+    <% end %>
+</div>

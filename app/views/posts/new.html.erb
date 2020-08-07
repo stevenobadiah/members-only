@@ -1,0 +1,13 @@
+<h1 class="title">Create a new Post</h1>
+
+<%= form_for(@post, html: {multipart: true}) do |f| %>
+  <ul>
+    <% @post.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+  <%= f.text_field :body, label: "Write a post", input_html: { class: "textarea" }, wrapper: false, label_html: {class: "label"}, placeholder: "Compose a new post...", autofocus: true %>
+  <%= f.button :submit, class: "button is-info" %>
+<% end %>
+
+<%= link_to 'Cancel', posts_path, class: "button is-dark" %>
